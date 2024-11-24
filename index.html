@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .inp{
+            margin-top: 25px;
+        }
+      
+        #cal1,#cal2,#cal{
+            margin-left: 45%;
+            padding: 2em;
+        }
+      
+        #btn{
+            text-align: center;
+        }
+        button{
+            padding: 1em;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="text" id="inp1" placeholder="Enter your Name" ><br><br>
+        <input type="password" name="password" id="inp2" placeholder="Enter your password"><br><br>
+        <div id="ip"></div>
+        <button>Submit</button><br><br>
+    </form> 
+    <div>
+        <input type="password"  id="pass" placeholder="Enter your password"><br><br>
+        <input type="password"  id="pass1" placeholder="Enter your password"><br><br>
+        <div id="disp"></div>
+        <button onclick="fun()">Submit</button><br><br>
+    </div>
+    <div class="container">
+    <div class="inp">
+        <input type="number"  id="cal" placeholder="Enter a number"><br><br>
+        <input type="number"  id="cal1" placeholder="Enter a number"><br><br>
+        <input type="number"  id="cal2" ><br><br>
+        <div id="btn">
+            <button onclick="fun1()">+</button>
+            <button onclick="fun2()">-</button>
+            <button onclick="fun3()">*</button>
+            <button onclick="fun4()">/</button>
+        </div>
+    </div>
+</div>
+    <script>
+        
+        function fun1(){
+            let cal = document.getElementById("cal");
+            let cal1 = document.getElementById("cal1");
+            let inp3 = document.getElementById("cal2");
+            display=Number(cal.value)+Number(cal1.value);
+            inp3.value=display
+            cal.value="";
+            cal1.value="";
+        }
+        function fun2(){
+            let cal = document.getElementById("cal");
+            let cal1 = document.getElementById("cal1");
+            let inp3 = document.getElementById("cal2");
+            display=Number(cal.value)-Number(cal1.value);
+            inp3.value=display
+            cal.value="";
+            cal1.value="";
+        }
+        function fun3(){
+            let cal = document.getElementById("cal");
+            let cal1 = document.getElementById("cal1");
+            let inp3 = document.getElementById("cal2");
+            display=Number(cal.value)*Number(cal1.value);
+            inp3.value=display
+            cal.value="";
+            cal1.value="";
+        }
+        function fun4(){
+            let cal = document.getElementById("cal");
+            let cal1 = document.getElementById("cal1");
+            let inp3 = document.getElementById("cal2");
+            display=Number(cal.value)/Number(cal1.value);
+            inp3.value=display
+            cal.value="";
+            cal1.value="";
+        }
+
+       let pass=document.getElementById("pass");
+        let pass1 = document.getElementById("pass1");
+        let disp = document.getElementById("disp")
+        function fun(){
+            if(pass.value == pass1.value){
+                disp.innerHTML="Password matched";
+                disp.style.color="green";
+                pass.value="";
+                pass1.value="";
+                
+            }
+            else{
+                disp.innerHTML="Password unmatched";
+                disp.style.color="red";
+                pass.value="";
+                pass1.value="";
+            }
+        }
+
+        var inp1 = document.getElementById("inp1");
+        var inp2 = document.getElementById("inp2");
+        var inp3 = document.getElementById("ip");
+        //inp3.style.display = "none";
+        var display = document.querySelector("button");
+        display.addEventListener("click",function(event){
+            event.preventDefault();
+            if(inp2.value.length<5){
+                alert("weak password");
+                inp3.style.color="red";
+                inp3.innerHTML="weak password";
+                inp2.value="";
+                inp1.value="";
+            }
+            else if(inp2.value.length<8){
+                alert("medium password");
+                inp3.style.color="yellow";
+                inp3.innerHTML="medium password";
+                inp2.value="";
+                inp1.value="";
+            }
+            else{
+                alert("strong password");
+                inp3.style.display ="block";
+                inp3.style.color ="green";
+                inp3.innerHTML="strong password";   
+                inp2.value="";
+                inp1.value="";
+            } 
+        })
+        
+
+
+    </script>
+</body>
+</html>
